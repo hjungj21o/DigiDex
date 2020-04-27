@@ -13,6 +13,7 @@ Users will be able to:
 
 ## Wireframe
 https://wireframe.cc/x49IcC
+![Wireframe](https://user-images.githubusercontent.com/57606555/80401083-c2e66e80-8889-11ea-83dc-27d409aab270.png)
 
 ## Timeline
 * 4.26 - Set up skeleton
