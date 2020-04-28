@@ -3,7 +3,6 @@ body {
     width: 100%;
 }
 
-
 canvas {
     border: 1px solid #7e7e7e;
     border-radius: 4px;
@@ -11,7 +10,6 @@ canvas {
     width: 550px;
     display: flex;
     box-shadow: 3px 3px 5px 6px rgb(150, 150, 150);
-    background-color: #f7f5de;
 }
 
 .main-div {
@@ -25,7 +23,9 @@ canvas {
     overflow: auto;
     float: left;
 }
+
 .s2-3 {
+    position: relative;
     height: 100%;
     width: 80%;
     float: right;
@@ -35,3 +35,44 @@ canvas {
     background-image: url("../assets/desk.jpg");
     background-size: cover;
 }
+
+#bubble {
+    z-index: 1;
+}
+
+.bubble-back-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-back {
+    font-size: 35px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-family: 'Baloo Tamma 2', cursive;
+    color: white;
+}
+
+.opacity {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    opacity: 0.8;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.bubble-back div:not(:first-child) {
+    color: white;
+    z-index: 6;
+}
+
+

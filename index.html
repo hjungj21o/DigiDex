@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/main.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
         <title>Digidex</title>
         <script src="./dist/main.js"></script>
     </head>
@@ -16,9 +17,19 @@
             <p>Template 3</p>
         </div>
         <div class="div s2-3">
-            <canvas id="bubble">
-                <p>hi there</p>
-            </canvas>
+            <div class="bubble-back-container card-back">
+                <div class="bubble-back card-back-title">
+                    <div class="opacity"></div>
+                    <div class="full-stack">Full-Stack</div> 
+                    <div class="software">Software </div>
+                    <div class="developer">Developer</div>
+                </div>
+                <canvas id="bubble">
+                </canvas>
+            </div>
+            <div class="bubble-front-container card-front">
+                <div>name: </div>
+            </div>
         </div>
         <script src="./src/bubble.js"></script>
     </body>
