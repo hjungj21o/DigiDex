@@ -1,0 +1,37 @@
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+
+canvas {
+    border: 1px solid #7e7e7e;
+    border-radius: 4px;
+    height: 300px;
+    width: 550px;
+    display: flex;
+    box-shadow: 3px 3px 5px 6px rgb(150, 150, 150);
+    background-color: #f7f5de;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.s1-3 {
+    height: 100%;
+    width: 20%;
+    overflow: auto;
+    float: left;
+}
+.s2-3 {
+    height: 100%;
+    width: 80%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/desk.jpg");
+    background-size: cover;
+}
