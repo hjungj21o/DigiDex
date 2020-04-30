@@ -17,32 +17,41 @@ canvas {
     flex-direction: row;
 }
 
-.s1-3 {
-    height: 100%;
-    width: 20%;
-    overflow: auto;
-    float: left;
-}
+//Main
 
 .s2-3 {
-    position: relative;
+    position: absolute;
     height: 100%;
-    width: 80%;
-    float: right;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url("../assets/desk.jpg");
     background-size: cover;
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+.card-back,.card-front {
+    position: absolute;
+    transition: transform 1.5s;
+    backface-visibility: hidden;
 }
 
 #bubble {
     z-index: 1;
 }
 
+.card-content {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
 .bubble-back-container {
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
 }
@@ -57,6 +66,9 @@ canvas {
     z-index: 5;
     font-family: 'Baloo Tamma 2', cursive;
     color: white;
+    transform: translateZ(100px);
+    backface-visibility: hidden;
+    transform: rotateX(0deg)
 }
 
 .opacity {
@@ -68,11 +80,125 @@ canvas {
     opacity: 0.8;
     padding: 20px;
     border-radius: 3px;
+    backface-visibility: hidden;
 }
 
 .bubble-back div:not(:first-child) {
     color: white;
     z-index: 6;
+    backface-visibility: hidden;
 }
 
+.card-content:hover .card-back {
+    transform: rotateX(-180deg);
+}
 
+.bubble-front-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-front {
+    font-size: 35px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Baloo Tamma 2', cursive;
+    transform-style: preserve-3d;
+    
+}
+
+.card-front {
+    transform: perspective(1500px) rotateX(180deg);
+}
+
+.card-content:hover .card-front {
+    transform: perspective(1500px) rotateX(0deg);
+}
+
+//edit pane
+
+.open-edit-pane {
+    cursor: pointer;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    z-index:100;
+    float: left;
+    top: 35vh;
+    transition: margin-left .5s;
+    font-family: 'Baloo Tamma 2', cursive;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 3px;
+}
+
+.fa-pen-square {
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+
+.open-edit-pane:hover {
+    font-size: 30px;
+}
+
+.closebtn {
+    color: white;
+}
+
+#sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #7e7e7e;
+    padding-top: 60px;
+    overflow-x: hidden;
+    float: left;
+    transition: 0.5s;
+}
+
+#sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.edit-pane-h2 {
+    font-size: 40px;
+    font-family: 'Baloo Tamma 2', cursive;
+    color: white;
+}
+
+.edit-pane label {
+    display: flex;
+    font-family: 'Baloo Tamma 2', cursive;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    justify-content: space-between;
+}
+
+#edit {
+    outline: none;
+    padding: 5px;
+    width: 65%;
+    float: right;
+    border-radius: 3px;
+    border: gray 1px solid;
+    font-size: 15px;
+}
+
+label > div {
+    padding-right: 10px;
+    text-align: center;
+}

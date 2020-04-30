@@ -4,33 +4,102 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/main.css" />
+        <link rel="stylesheet" href="./src/reset.css" />
         <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
         <title>Digidex</title>
-        <script src="./dist/main.js"></script>
+        
     </head>
     <body>
-        <div class="main-div"></div>
-        <div class="div s1-3">
-            <h2>Style Selector</h2>
-            <p>BUBBLES</p>
-            <p>Code Introduction</p>
-            <p>Template 3</p>
+        <div id="sidenav" class="s1-3">
+            <div class="closebtn"><i class="fas fa-times"></i></div>
+            <h2 class="edit-pane-h2">
+                Edit Pane
+            </h2>
+            <div class="edit-pane-front-text">Front Side</div>
+            <form class="edit-pane front">
+                <label>
+                    <div name="edit-name">Line 1:</div>
+                    <input type="text" id="edit" class="change-line-1" placeholder="What is your punchline?" />
+                </label>
+                <label>
+                    <div name="edit-position">Line 2:</div>
+                    <input type="text" id="edit" class="change-line-2" placeholder="Be creative." />
+                </label>
+                <label>
+                    <div name="edit-phone">Line 3:</div>
+                    <input type="text" id="edit" class="change-line-3" placeholder="Don't think too hard!" />
+                </label>
+            </form>
+            <div class="edit-pane-front-text">Front Side</div>
+            <form class="edit-pane back">
+                <label>
+                    <div name="edit-name">Name:</div>
+                    <input type="text" id="edit" class="change-name" placeholder="First Last (ex:'John Smith')" />
+                </label>
+                <label>
+                    <div name="edit-position">Position:</div>
+                    <input type="text" id="edit" class="change-position" placeholder="Current Position" />
+                </label>
+                <label>
+                    <div name="edit-phone">Phone:</div>
+                    <input type="text" id="edit" class="change-phone" placeholder="(000) 000 - 0000" />
+                </label>
+                <label>
+                    <div name="edit-email">Email:</div>
+                    <input type="text" id="edit" class="change-email" placeholder="johnsmith@gmail.com" />
+                </label>
+                <label>
+                    <div name="edit-linkedin">Linkedin:</div>
+                    <input type="text" id="edit" class="change-linkedin" placeholder="linkedin.com/johnsmith" />
+                </label>
+                <label>
+                    <div name="edit-github">GitHub:</div>
+                    <input type="text" id="edit" class="change-github" placeholder="github.com/jsmithy" />
+                </label>
+                <label>
+                    <div name="edit-angellist">AngelList:</div>
+                    <input type="text" id="edit" class="change-angellist" placeholder="angel.co/u/jsmithy" />
+                </label>
+            </form>
+            <button class="reset-button">Reset!</button>
+        </div>
+        <div class="open-edit-pane">
+            <i class="fas fa-pen-square"></i>
+            Edit
         </div>
         <div class="div s2-3">
-            <div class="bubble-back-container card-back">
-                <div class="bubble-back card-back-title">
-                    <div class="opacity"></div>
-                    <div class="full-stack">Full-Stack</div> 
-                    <div class="software">Software </div>
-                    <div class="developer">Developer</div>
+            <div class="card-content">
+                <div class="bubble-back-container card-back">
+                    <div class="bubble-back card-back-title">
+                        <div class="opacity"></div>
+                        <div class="full-stack line-1">Full-Stack</div> 
+                        <div class="software line-2">Developer</div>
+                        <div class="developer line-3">For Hire</div>
+                    </div>
+                    <canvas id="bubble">
+                    </canvas>
                 </div>
-                <canvas id="bubble">
-                </canvas>
-            </div>
-            <div class="bubble-front-container card-front">
-                <div>name: </div>
+                <div class="bubble-front-container card-front">
+                    <div class="bubble-front card-front-content">
+                        <div class="name">Haejun Chung</div>
+                        <div class="position">Full Stack Developer</div>
+                        <ul>
+                            <li class="phone"><i class="fas fa-mobile-alt"></i>(862) 485 - 6213</li>
+                            <li class="email"><i class="fas fa-at"></i>haejun.chung210@gmail.com</li>
+                            <li class="linkedin"><i class="fab fa-linkedin"></i>linkedin.com/in/haejunchung/</li>
+                            <li class="github"><i class="fab fa-github-square"></i>github.com/hjungj21o</li>
+                            <li class="angellist"><i class="fab fa-angellist"></i>angel.co/u/haejun-chung-19</li>
+                        </ul>
+                    </div>
+                    <canvas id="bubble">
+                    </canvas>
+                </div>
             </div>
         </div>
+        <script src="./dist/main.js"></script>
+        <script src="./src/edit_pane.js"></script>
+        <script src="./src/card_front.js"></script>
         <script src="./src/bubble.js"></script>
     </body>
 </html>
