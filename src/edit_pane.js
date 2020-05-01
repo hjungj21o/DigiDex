@@ -365,7 +365,7 @@ function reset() {
 const resetLS = document.querySelector(".reset-button");
 resetLS.addEventListener("click", reset)
 
-//change font 
+//change fonts
 const changeFrontFont = document.querySelectorAll(".dropdown-li");
 const fontButton = document.querySelector(".dropbtn");
 const fontFamily = {
