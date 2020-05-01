@@ -1,6 +1,7 @@
 body {
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 
 canvas {
@@ -29,7 +30,6 @@ canvas {
     background-image: url("../assets/desk.jpg");
     background-size: cover;
     transition: margin-left .5s;
-    padding: 20px;
 }
 
 .card-back,.card-front {
@@ -64,11 +64,11 @@ canvas {
     justify-content: center;
     align-items: center;
     z-index: 5;
-    font-family: 'Baloo Tamma 2', cursive;
+    font-family: 'Varela Round', sans-serif;
     color: white;
     transform: translateZ(100px);
     backface-visibility: hidden;
-    transform: rotateX(0deg)
+    transform: rotateX(0deg);
 }
 
 .opacity {
@@ -76,7 +76,7 @@ canvas {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: orange;
+    background-color: #FFB45A;
     opacity: 0.8;
     padding: 20px;
     border-radius: 3px;
@@ -90,7 +90,7 @@ canvas {
 }
 
 .card-content:hover .card-back {
-    transform: rotateX(-180deg);
+    transform:  rotateX(-180deg);
 }
 
 .bubble-front-container {
@@ -108,27 +108,37 @@ canvas {
     align-items: center;
     font-family: 'Baloo Tamma 2', cursive;
     transform-style: preserve-3d;
-    
 }
 
 .card-front {
-    transform: perspective(1500px) rotateX(180deg);
+    transform: rotateX(180deg);
 }
 
 .card-content:hover .card-front {
-    transform: perspective(1500px) rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+.bubble-front ul li {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.name {
+    font-size: 55px;
+    text-decoration: underline;
+    padding-bottom: 10px;
 }
 
 //edit pane
 
 .open-edit-pane {
     cursor: pointer;
-    padding: 7px;
+    padding: 7px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: sticky;
+    position: fixed;
     z-index:100;
     float: left;
     top: 35vh;
@@ -136,6 +146,15 @@ canvas {
     font-family: 'Baloo Tamma 2', cursive;
     box-shadow: 1px 1px 1px black;
     border-radius: 3px;
+    transition: 0.5s;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .fa-pen-square {
@@ -145,20 +164,36 @@ canvas {
 
 .open-edit-pane:hover {
     font-size: 30px;
+    box-shadow: 1px 2px 3px 4px gray;
+    transition: 0.5s;
 }
 
 .closebtn {
     color: white;
+    cursor: pointer;
 }
 
 #sidenav {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #7e7e7e;
+    background: rgb(8,8,8);
+    background: 
+        linear-gradient(148deg, rgba(8,8,8,1) 0%, 
+        rgba(44,44,44,1) 12%, 
+        rgba(70,70,70,1) 40%, 
+        rgba(100,100,100,1) 48%, 
+        rgba(119,119,119,1) 57%,
+        rgba(114,114,114,1) 66%, 
+        rgba(111,111,111,1) 73%, 
+        rgba(107,107,107,1) 81%, 
+        rgba(102,102,102,1) 94%);
     padding-top: 60px;
     overflow-x: hidden;
     float: left;
@@ -173,25 +208,40 @@ canvas {
     margin-left: 50px;
 }
 
+.edit-side-title {
+    padding-left: 35px;
+    font-size: 25px;
+    font-family: 'Baloo Tamma 2', cursive;
+    color: white;
+}
+
 .edit-pane-h2 {
+    padding-left: 35px;
     font-size: 40px;
     font-family: 'Baloo Tamma 2', cursive;
     color: white;
 }
 
-.edit-pane label {
+.change-front-font {
+    display: flex;
+    padding: 10px;
+}
+
+.edit-pane label{
+    font-size: 20px;
     display: flex;
     font-family: 'Baloo Tamma 2', cursive;
     align-items: center;
     padding: 10px;
     color: white;
     justify-content: space-between;
+    padding-right: 45px;
 }
 
 #edit {
     outline: none;
-    padding: 5px;
-    width: 65%;
+    padding: 10px;
+    width: 50%;
     float: right;
     border-radius: 3px;
     border: gray 1px solid;
@@ -199,6 +249,102 @@ canvas {
 }
 
 label > div {
+    padding-left: 25px;
     padding-right: 10px;
     text-align: center;
+}
+
+.reset-button {
+    cursor: pointer;
+    padding: 8px 20px;
+    width: 25%;
+    background-color: white;
+    font-size: 20px;
+    font-family: 'Baloo Tamma 2', cursive;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 3px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.dropbtn {
+  background-color: rgb(138, 138, 138);
+  color: white;
+  padding: 16px;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3a3a3a;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  width: 49%;
+  right: 45px;
+  top: 49px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li {
+  color: black;
+  text-decoration: none;
+  padding-left: 10px;
+  border-bottom: 1px solid gray;
+  display: flex;
+}
+
+.dropdown li:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-li {
+    padding: 5px;
+}
+
+#varela {
+    font-family: "Varela Round", sans-serif;
+}
+
+#roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+#montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+
+#concertone { 
+    font-family: "Concert One", cursive;
+}
+
+#spectral { 
+    font-family: "Spectral", serif;
+}
+
+#monoton { 
+    font-family: "Monoton", cursive;
+}
+
+#indieflower{ 
+    font-family: "Indie Flower", cursive;
+}
+
+#bungee { 
+    font-family: "Bungee Shade", cursive;
 }

@@ -5,70 +5,95 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/main.css" />
         <link rel="stylesheet" href="./src/reset.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Bungee+Shade&family=Concert+One&family=Indie+Flower&family=Monoton&family=Montserrat:wght@500&family=Roboto:wght@300&family=Spectral&family=Varela+Round&display=swap"
+        rel="stylesheet"
+    >
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
         <title>Digidex</title>
         
     </head>
     <body>
+        <div class="open-edit-pane">
+            <i class="fas fa-pen-square"></i>
+            Edit
+        </div>
         <div id="sidenav" class="s1-3">
             <div class="closebtn"><i class="fas fa-times"></i></div>
             <h2 class="edit-pane-h2">
                 Edit Pane
             </h2>
-            <div class="edit-pane-front-text">Front Side</div>
+            <div class="edit-side-title edit-pane-front-text">Front Side</div>
             <form class="edit-pane front">
+                <label class="dropdown">
+                    <div>Font Type:</div>
+                    <div id="edit" class="dropbtn change-front-font">Varela</div>
+                    <ul id="myDropdown" class="dropdown-content">
+                        <li class="dropdown-li" id="varela">Varela</li>
+                        <li class="dropdown-li" id="spectral">Spectral</li>
+                        <li class="dropdown-li" id="indieflower">Indie Flower</li>
+                        <li class="dropdown-li" id="roboto">Roboto</li>
+                        <li class="dropdown-li" id="montserrat">Montserrat</li>
+                        <li class="dropdown-li" id="concertone">Concert One</li>
+                        <li class="dropdown-li" id="monoton">Monoton</li>
+                        <li class="dropdown-li" id="bungee">Bungee Shade</li>
+                    </ul>
+                </label>
                 <label>
-                    <div name="edit-name">Line 1:</div>
+                    <div class="edit-name">Line 1:</div>
                     <input type="text" id="edit" class="change-line-1" placeholder="What is your punchline?" />
                 </label>
                 <label>
-                    <div name="edit-position">Line 2:</div>
+                    <div class="edit-position">Line 2:</div>
                     <input type="text" id="edit" class="change-line-2" placeholder="Be creative." />
                 </label>
                 <label>
-                    <div name="edit-phone">Line 3:</div>
+                    <div class="edit-phone">Line 3:</div>
                     <input type="text" id="edit" class="change-line-3" placeholder="Don't think too hard!" />
                 </label>
-            </form>
-            <div class="edit-pane-front-text">Front Side</div>
-            <form class="edit-pane back">
                 <label>
-                    <div name="edit-name">Name:</div>
+                    <div class="edit-block-color">Block Color:</div>
+                    <input type="text" id="edit" class="change-block-color" placeholder="#FFB45A">
+                </label>
+            </form>
+            <div class="edit-side-title edit-pane-back-text">Back Side</div>
+            <form class="edit-pane back">
+                <label class="edit-pane-input">
+                    <div class="edit-name">Name:</div>
                     <input type="text" id="edit" class="change-name" placeholder="First Last (ex:'John Smith')" />
                 </label>
-                <label>
-                    <div name="edit-position">Position:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-position">Position:</div>
                     <input type="text" id="edit" class="change-position" placeholder="Current Position" />
                 </label>
-                <label>
-                    <div name="edit-phone">Phone:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-phone">Phone:</div>
                     <input type="text" id="edit" class="change-phone" placeholder="(000) 000 - 0000" />
                 </label>
-                <label>
-                    <div name="edit-email">Email:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-email">Email:</div>
                     <input type="text" id="edit" class="change-email" placeholder="johnsmith@gmail.com" />
                 </label>
-                <label>
-                    <div name="edit-linkedin">Linkedin:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-linkedin">Linkedin:</div>
                     <input type="text" id="edit" class="change-linkedin" placeholder="linkedin.com/johnsmith" />
                 </label>
-                <label>
-                    <div name="edit-github">GitHub:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-github">GitHub:</div>
                     <input type="text" id="edit" class="change-github" placeholder="github.com/jsmithy" />
                 </label>
-                <label>
-                    <div name="edit-angellist">AngelList:</div>
+                <label class="edit-pane-input">
+                    <div class="edit-angellist">AngelList:</div>
                     <input type="text" id="edit" class="change-angellist" placeholder="angel.co/u/jsmithy" />
                 </label>
             </form>
             <button class="reset-button">Reset!</button>
-        </div>
-        <div class="open-edit-pane">
-            <i class="fas fa-pen-square"></i>
-            Edit
+            <div class="creator">
+                
+            </div>
         </div>
         <div class="div s2-3">
+            <img src="/src/assets/logo.png">
             <div class="card-content">
                 <div class="bubble-back-container card-back">
                     <div class="bubble-back card-back-title">
@@ -92,7 +117,7 @@
                             <li class="angellist"><i class="fab fa-angellist"></i>angel.co/u/haejun-chung-19</li>
                         </ul>
                     </div>
-                    <canvas id="bubble">
+                    <canvas>
                     </canvas>
                 </div>
             </div>

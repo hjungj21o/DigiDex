@@ -1,23 +1,28 @@
 function openNav() {
-    document.querySelector("#sidenav").style.width = "40vh";
-    document.querySelector(".s2-3").style.marginLeft = "40vh";
-    document.querySelector(".open-edit-pane").style.display = "none";
+    document.querySelector("#sidenav").style.width = "35vw";
+    document.querySelector(".s2-3").style.marginLeft = "15vw";
+    document.querySelector(".open-edit-pane").style.marginLeft = "35vw";
 }
 
 function closeNav() {
     document.querySelector("#sidenav").style.width = "0";
     document.querySelector(".s2-3").style.marginLeft = "0";
+    document.querySelector(".open-edit-pane").style.marginLeft = "0";
     document.querySelector(".open-edit-pane").style.display = "flex";
 }
+//Toggle to make edit pane close and open
+// function toggleOpenClose() {
+//     openEditPane.classList.toggle("show");
+// }
 
+// dropdownbtn.addEventListener("click", toggleDropdown);
 const openEditPane = document.querySelector(".open-edit-pane");
 const closeEditPane = document.querySelector(".closebtn");
 const mainBody = document.querySelector("s2-3");
 
+
 openEditPane.addEventListener("click", openNav);
 closeEditPane.addEventListener("click", closeNav);
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const classNames = [
@@ -30,7 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "change-angellist",
         "change-line-1",
         "change-line-2",
-        "change-line-3"
+        "change-line-3",
+        "change-block-color",
+        "dropdown-li"
     ]
 
     classNames.forEach(className => {
@@ -42,14 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
 const editLineOne = document.querySelector(".change-line-1");
 const editLineTwo = document.querySelector(".change-line-2");
 const editLineThree = document.querySelector(".change-line-3");
+const editBlockColor = document.querySelector(".change-block-color");
 
-const lineOne = document.querySelector(".line-1")
-const lineTwo = document.querySelector(".line-2")
-const lineThree = document.querySelector(".line-3")
+const lineOne = document.querySelector(".line-1");
+const lineTwo = document.querySelector(".line-2");
+const lineThree = document.querySelector(".line-3");
+const blockColor = document.querySelector(".opacity");
 
 editLineOne.addEventListener("keyup", editInputFuncA);
 editLineTwo.addEventListener("keyup", editInputFuncA);
 editLineThree.addEventListener("keyup", editInputFuncA);
+editBlockColor.addEventListener("keyup", editInputFuncA);
 
 function editInputFuncA(e) {
     e.preventDefault();
@@ -76,6 +86,13 @@ function editInputFuncA(e) {
                 lineThree.innerText = e.currentTarget.value;
             }
             break;
+        case "change-block-color":
+            debugger;
+            if (e.currentTarget.value === "") {
+                blockColor.style.backgroundColor = "#FFB45A";
+            } else {
+                blockColor.style.backgroundColor = e.currentTarget.value;
+            }
     }
     localStorage.removeItem(e.currentTarget.className);
     saveInfo(e.currentTarget.className, e.currentTarget.value);
@@ -185,6 +202,7 @@ function getInfo(className) {
         infos = JSON.parse(localStorage.getItem(className));
     }
     const info = infos[infos.length - 1];
+    debugger;
     switch (className) {
         case "change-name":
             if (!info) {
@@ -266,15 +284,170 @@ function getInfo(className) {
                 editLineThree.value = info;
             }
             break;
+        case "dropdown-li":
+            if (!info) {
+                lineOne.style.fontFamily = "Varela Round, sans-serif";
+                lineTwo.style.fontFamily = "Varela Round, sans-serif";
+                lineThree.style.fontFamily = "Varela Round, sans-serif";
+            } else {
+                fontButton.innerText = info;
+                fontButton.style.fontFamily = fontFamily[info];
+                lineOne.style.fontFamily = fontFamily[info];
+                lineTwo.style.fontFamily = fontFamily[info];
+                lineThree.style.fontFamily = fontFamily[info];
+            }
+            break;
+        case "change-block-color":
+            if (!info) {
+                blockColor.style.backgroundColor = "#FFB45A";
+            } else {
+                blockColor.style.backgroundColor = info;
+                editBlockColor.value = info;
+            }
+            break;
     }
 }
 
 // Reset button 
+
+const defaultValues = {
+    name: "Haejun Chung",
+    position: "Full-Stack Developer",
+    phone: "(862) 485 - 6213",
+    email: "haejun.chung210@gmail.com",
+    linkedin: "linkedin.com/in/haejunchung/",
+    github: "github.com/hjungj21o",
+    angel: "angel.co/u/haejun-chung-19",
+    lineOne: "Full-Stack",
+    lineTwo: "Developer",
+    lineThree: "For Hire",
+    font: "Varela Round, sans-serif"
+}
+
+const resetInputsArr = document.querySelectorAll("#edit");
+
 function reset() {
     localStorage.clear();
     //clear all input fields
+    resetInputsArr.forEach(input => {
+        input.value = "";
+    })
+    //input values back to default values
+    name.innerText = defaultValues.name;
+    position.innerText = defaultValues.position;
+    phone.innerText = defaultValues.phone;
+    email.innerText = defaultValues.email;
+    linkedin.innerText = defaultValues.linkedin;
+    github.innerText = defaultValues.github;
+    angellist.innerText = defaultValues.angel;
+    lineOne.innerText = defaultValues.lineOne;
+    lineTwo.innerText = defaultValues.lineTwo;
+    lineThree.innerText = defaultValues.lineThree;
+    lineOne.style.fontFamily = defaultValues.font;
+    lineTwo.style.fontFamily = defaultValues.font;
+    lineThree.style.fontFamily = defaultValues.font;
+    fontButton.innerHTML = "varela";
+    fontButton.style.fontFamily = fontFamily[varela];
+
+
+    console.log(changeFrontFont.value);
 }
 
 const resetLS = document.querySelector(".reset-button");
-debugger;
 resetLS.addEventListener("click", reset)
+
+//change font 
+const changeFrontFont = document.querySelectorAll(".dropdown-li");
+const fontButton = document.querySelector(".dropbtn");
+debugger;
+const fontFamily = {
+    varela: "Varela Round, sans-serif",
+    roboto: "Roboto, sans-serif",
+    montserrat: "Montserrat, sans-serif",
+    concertone: "Concert One, cursive",
+    spectral: "Spectral, serif",
+    monoton: "Monoton, cursive",
+    indieflower: "Indie Flower, cursive",
+    bungee: "Bungee Shade, cursive"
+}
+function editFontsFunc(e) {
+    debugger;
+
+    fontButton.innerText = e.currentTarget.innerText;
+    fontButton.style.fontFamily = fontFamily[e.currentTarget.id];
+    //Could it be refactored: lineOne.style.fontFamily = fontFamily[e.currentTarget.id]
+    switch(e.currentTarget.id) {
+        case "varela":
+            lineOne.style.fontFamily = fontFamily.varela;
+            lineTwo.style.fontFamily = fontFamily.varela;
+            lineThree.style.fontFamily = fontFamily.varela;
+            break;
+        case "roboto": 
+            lineOne.style.fontFamily = fontFamily.roboto;
+            lineTwo.style.fontFamily = fontFamily.roboto;
+            lineThree.style.fontFamily = fontFamily.roboto;
+            break;
+        case "montserrat": 
+            lineOne.style.fontFamily = fontFamily.montserrat;
+            lineTwo.style.fontFamily = fontFamily.montserrat;
+            lineThree.style.fontFamily = fontFamily.montserrat;
+            break;
+        case "concertone": 
+            lineOne.style.fontFamily = fontFamily.concertone;
+            lineTwo.style.fontFamily = fontFamily.concertone;
+            lineThree.style.fontFamily = fontFamily.concertone;
+            break;
+        case "spectral":
+            lineOne.style.fontFamily = fontFamily.spectral;
+            lineTwo.style.fontFamily = fontFamily.spectral;
+            lineThree.style.fontFamily = fontFamily.spectral;
+            break;
+        case "monoton":
+            lineOne.style.fontFamily = fontFamily.monoton;
+            lineTwo.style.fontFamily = fontFamily.monoton;
+            lineThree.style.fontFamily = fontFamily.monoton;
+            break;
+        case "indieflower":
+            lineOne.style.fontFamily = fontFamily.indieflower;
+            lineTwo.style.fontFamily = fontFamily.indieflower;
+            lineThree.style.fontFamily = fontFamily.indieflower;
+            break;
+        case "bungee": 
+            lineOne.style.fontFamily = fontFamily.bungee;
+            lineTwo.style.fontFamily = fontFamily.bungee;
+            lineThree.style.fontFamily = fontFamily.bungee;
+            break;
+    }
+    localStorage.removeItem(e.currentTarget.className);
+    saveInfo(e.currentTarget.className, e.currentTarget.id);
+}
+
+
+changeFrontFont.forEach(font => {
+    font.addEventListener("click", editFontsFunc);
+})
+
+
+
+//Dropdown
+const dropdown = document.querySelector("#myDropdown");
+const dropdownbtn = document.querySelector(".dropbtn");
+function toggleDropdown() {
+    dropdown.classList.toggle("show");
+}
+
+dropdownbtn.addEventListener("click", toggleDropdown);
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (e) {
+    if (!e.target.matches('.dropbtn')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}

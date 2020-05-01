@@ -1,6 +1,1 @@
-import './styles/index.scss';
-
-// localStorage.clear();
-
-
-
+import "./styles/index.scss";
