@@ -17,8 +17,7 @@ const mainBody = document.querySelector("s2-3");
 
 // Toggle to make edit pane close and open
 function toggleOpenClose() {
-    // openEditPane.classList.toggle("opened");
-    console.log(openEditPane.classList);
+
     if (openEditPane.classList.contains("opened")) {
         openEditPane.classList.remove("opened");
         closeNav();
