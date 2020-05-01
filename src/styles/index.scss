@@ -183,17 +183,7 @@ img {
     z-index: 1;
     top: 0;
     left: 0;
-    background: rgb(8,8,8);
-    background: 
-        linear-gradient(148deg, rgba(8,8,8,1) 0%, 
-        rgba(44,44,44,1) 12%, 
-        rgba(70,70,70,1) 40%, 
-        rgba(100,100,100,1) 48%, 
-        rgba(119,119,119,1) 57%,
-        rgba(114,114,114,1) 66%, 
-        rgba(111,111,111,1) 73%, 
-        rgba(107,107,107,1) 81%, 
-        rgba(102,102,102,1) 94%);
+    background: rgb(70, 70, 70);
     padding-top: 60px;
     overflow-x: hidden;
     float: left;
@@ -347,4 +337,8 @@ label > div {
 
 #bungee { 
     font-family: "Bungee Shade", cursive;
+}
+
+#faster {
+    font-family: "Faster One", cursive;
 }
