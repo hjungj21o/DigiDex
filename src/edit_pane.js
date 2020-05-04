@@ -9,6 +9,7 @@ function closeNav() {
     document.querySelector(".s2-3").style.marginLeft = "0";
     document.querySelector(".open-edit-pane").style.marginLeft = "0";
     document.querySelector(".open-edit-pane").style.display = "flex";
+    openEditPane.classList.remove("opened");
 }
 
 const openEditPane = document.querySelector(".open-edit-pane");
