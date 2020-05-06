@@ -3,6 +3,9 @@
 ## Overview
 Digidex is a virtual business card that contains many interactive pieces that old-fashioned business cards wouldn't be able to provide.
 
+## Live Link
+https://hjungj21o.github.io/DigiDex/
+
 ## MVPs & Functionality
 Users will be able to: 
 1. View front side of Digidex (contains personal info)
