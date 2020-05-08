@@ -10,13 +10,13 @@ https://hjungj21o.github.io/DigiDex/
 Users will be able to: 
 1. View front side of Digidex (contains personal info)
 2. View back side of Digidex (via user action)
-3. Download business card template
-4. BONUS - Edit boilerplate personal info
+3. Edit boilerplate personal info
+4. Download business card template
 
 
 ## Wireframe
 https://wireframe.cc/x49IcC
-![Wireframe](https://user-images.githubusercontent.com/57606555/80401083-c2e66e80-8889-11ea-83dc-27d409aab270.png)
+
 
 ## Timeline
 * 4.26 - Set up skeleton
