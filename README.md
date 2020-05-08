@@ -3,17 +3,21 @@
 ## Overview
 Digidex is a virtual business card that contains many interactive pieces that old-fashioned business cards wouldn't be able to provide.
 
+## Live Link
+https://hjungj21o.github.io/DigiDex/
+
 ## MVPs & Functionality
 Users will be able to: 
 1. View front side of Digidex (contains personal info)
 2. View back side of Digidex (via user action)
-3. Download business card template
-4. BONUS - Edit boilerplate personal info
+3. Edit boilerplate personal info
+4. Download business card template
 
 
 ## Wireframe
 https://wireframe.cc/x49IcC
-![Wireframe](https://user-images.githubusercontent.com/57606555/80401083-c2e66e80-8889-11ea-83dc-27d409aab270.png)
+<img width="1049" alt="Screen Shot 2020-05-08 at 12 46 19 AM" src="https://user-images.githubusercontent.com/57606555/81371318-899dd200-90c5-11ea-8247-38810b4b1dea.png">
+
 
 ## Timeline
 * 4.26 - Set up skeleton
@@ -28,4 +32,4 @@ https://wireframe.cc/x49IcC
 2. HTML5
 3. CSS
 4. Webpack
-5. jsPDF
+5. jsPDF(BONUS)
