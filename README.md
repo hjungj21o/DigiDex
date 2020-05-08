@@ -32,4 +32,4 @@ https://wireframe.cc/x49IcC
 2. HTML5
 3. CSS
 4. Webpack
-5. jsPDF
+5. jsPDF(BONUS)
