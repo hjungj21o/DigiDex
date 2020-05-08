@@ -16,6 +16,7 @@ Users will be able to:
 
 ## Wireframe
 https://wireframe.cc/x49IcC
+<img width="1049" alt="Screen Shot 2020-05-08 at 12 46 19 AM" src="https://user-images.githubusercontent.com/57606555/81371318-899dd200-90c5-11ea-8247-38810b4b1dea.png">
 
 
 ## Timeline
