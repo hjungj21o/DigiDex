@@ -1,3 +1,5 @@
+// import "./color-picker"
+
 function openNav() {
     document.querySelector("#sidenav").style.width = "30vw";
     document.querySelector(".s2-3").style.marginLeft = "5vw";
@@ -56,6 +58,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })
 
+const defaultValues = {
+    name: "Haejun Chung",
+    position: "Full-Stack Developer",
+    phone: "(862) 485-6213",
+    email: "haejun.chung210@gmail.com",
+    linkedin: "linkedin.com/in/haejunchung/",
+    github: "github.com/hjungj21o",
+    angel: "angel.co/u/haejun-chung-19",
+    lineOne: "Full-Stack",
+    lineTwo: "Developer",
+    lineThree: "For Hire",
+    blockColor: "#FFB45A",
+    font: "Varela Round, sans-serif"
+}
+
 //Frontside Edit
 const editLineOne = document.querySelector(".change-line-1");
 const editLineTwo = document.querySelector(".change-line-2");
@@ -65,7 +82,8 @@ const editBlockColor = document.querySelector(".change-block-color");
 const lineOne = document.querySelector(".line-1");
 const lineTwo = document.querySelector(".line-2");
 const lineThree = document.querySelector(".line-3");
-const blockColor = document.querySelector(".opacity");
+// const blockColor = new CP(document.querySelector(".opacity"));
+const blockColor = document.querySelector(".opacity")
 
 editLineOne.addEventListener("keyup", editInputFuncA);
 editLineTwo.addEventListener("keyup", editInputFuncA);
@@ -78,28 +96,28 @@ function editInputFuncA(e) {
     switch (e.currentTarget.className) {
         case "change-line-1":
             if (e.currentTarget.value === "") {
-                lineOne.innerText = "Full-Stack";
+                lineOne.innerText = defaultValues.lineOne;
             } else {
                 lineOne.innerText = e.currentTarget.value;
             }
             break;
         case "change-line-2":
             if (e.currentTarget.value === "") {
-                lineTwo.innerText = "Developer";
+                lineTwo.innerText = defaultValues.lineTwo;
             } else {
                 lineTwo.innerText = e.currentTarget.value;
             }
             break;
         case "change-line-3":
             if (e.currentTarget.value === "") {
-                lineThree.innerText = "For Hire";
+                lineThree.innerText = defaultValues.lineThree
             } else {
                 lineThree.innerText = e.currentTarget.value;
             }
             break;
         case "change-block-color":
             if (e.currentTarget.value === "") {
-                blockColor.style.backgroundColor = "#FFB45A";
+                blockColor.style.backgroundColor = defaultValues.blockColor;
             } else {
                 blockColor.style.backgroundColor = e.currentTarget.value;
             }
@@ -140,51 +158,74 @@ function editInputFuncB(e) {
     switch (e.currentTarget.className) {
         case "change-name":
             if (e.currentTarget.value === "") {
-                name.innerText = "Haejun Chung"
+                name.innerText = defaultValues.name;
             } else {
                 name.innerText = e.currentTarget.value;
             }
             break;
         case "change-position":
             if (e.currentTarget.value === "") {
-                position.innerText = "Full Stack Developer"
+                position.innerText = defaultValues.position;
             } else {
                 position.innerText = e.currentTarget.value;
             }
             break;
         case "change-phone":
             if (e.currentTarget.value === "") {
-                phone.innerHTML = '<i class="fas fa-mobile-alt"></i>' + "(862) 485 - 6213"
+                phone.innerText = defaultValues.phone;
+                phone.href = "tel:" + defaultValues.phone;
             } else {
-                phone.innerHTML = '<i class="fas fa-mobile-alt"></i>' + e.currentTarget.value;
+                phone.innerText = e.currentTarget.value;
+                phone.href = "tel:" + e.currentTarget.value;
             }
             break;
         case "change-email":
             if (e.currentTarget.value === "") {
-                email.innerHTML = '<i class="fas fa-at"></i>' + "haejun.chung210@gmail.com"
+                email.innerText = defaultValues.email;
+                email.href = "mailto:" + defaultValues.email;
             } else {
-                email.innerHTML = '<i class="fas fa-at"></i>' + e.currentTarget.value;
+                email.innerText = e.currentTarget.value;
+                email.href = "mailto:" + e.currentTarget.value;
             }
             break;
         case "change-linkedin":
             if (e.currentTarget.value === "") {
-                linkedin.innerHTML = '<i class="fab fa-linkedin"></i>' + "linkedin.com/in/haejunchung/"
+                linkedin.innerText = defaultValues.linkedin
+                linkedin.href = "https://" + defaultValues.linkedin;
             } else {
-                linkedin.innerHTML = '<i class="fab fa-linkedin"></i>' + e.currentTarget.value;
+                linkedin.innerText = e.currentTarget.value;
+                if (e.currentTarget.value.startsWith("https://")) {
+                    linkedin.href = e.currentTarget.value;
+                } else {
+                    debugger;
+                    linkedin.href = "https://" + e.currentTarget.value;
+                };
             }
             break;
         case "change-github":
             if (e.currentTarget.value === "") {
-                github.innerHTML = '<i class="fab fa-github-square"></i>' + "github.com/hjungj21o"
+                github.innerText = defaultValues.github;
+                github.href = "https://" + defaultValues.github;
             } else {
-                github.innerHTML = '<i class="fab fa-github-square"></i>' + e.currentTarget.value;
+                github.innerText = e.currentTarget.value;
+                if (e.currentTarget.value.startsWith("https://")) {
+                    github.href = e.currentTarget.value;
+                } else {
+                    github.href = "https://" + e.currentTarget.value;
+                };
             }
             break;
         case "change-angellist":
             if (e.currentTarget.value === "") {
-                angellist.innerHTML = '<i class="fab fa-angellist"></i>' + "angel.co/u/haejun-chung-19"
+                angellist.innerText = defaultValues.angel;
+                github.href = "https:" + defaultValues.angel;
             } else {
-                angellist.innerHTML = '<i class="fab fa-angellist"></i>' + e.currentTarget.value;
+                angellist.innerText = e.currentTarget.value;
+                if (e.currentTarget.value.startsWith("https://")) {
+                    angellist.href = e.currentTarget.value;
+                } else {
+                    angellist.href = "https://" + e.currentTarget.value;
+                };
             }
             break;
     }
@@ -215,7 +256,7 @@ function getInfo(className) {
     switch (className) {
         case "change-name":
             if (!info) {
-                name.innerText = "Haejun Chung"
+                name.innerText = defaultValues.name;
             } else {
                 name.innerText = info;
                 editNameForm.value = info;
@@ -223,7 +264,7 @@ function getInfo(className) {
             break;
         case "change-position":
             if (!info) {
-                position.innerText = "Full-Stack Developer"
+                position.innerText = defaultValues.position;
             } else {
                 position.innerText = info;
                 editPositionForm.value = info;
@@ -231,47 +272,67 @@ function getInfo(className) {
             break;
         case "change-phone":
             if (!info) {
-                phone.innerHTML = '<i class="fas fa-mobile-alt"></i>' + "(862) 485 - 6213"
+                phone.innerText = defaultValues.phone;
+                phone.href = "tel:" + defaultValues.phone;
             } else {
-                phone.innerHTML = '<i class="fas fa-mobile-alt"></i>' + info;
+                phone.innerText = info;
                 editPhoneForm.value = info;
+                phone.href = "tel:" + info;
             }
             break;
         case "change-email":
             if (!info) {
-                email.innerHTML = '<i class="fas fa-at"></i>' + "haejun.chung210@gmail.com"
+                email.innerText = defaultValues.email;
+                email.href = "mailto:" + defaultValues.email;
             } else {
-                email.innerHTML = '<i class="fas fa-at"></i>' + info;
+                email.innerText = info;
+                email.href = "mailto:" + info;
                 editEmailForm.value = info;
             }
             break;
         case "change-linkedin":
             if (!info) {
-                linkedin.innerHTML = '<i class="fab fa-linkedin"></i>' + "linkedin.com/in/haejunchung/"
+                linkedin.innerText = defaultValues.linkedin;
+                linkedin.href = "https://" + defaultValues.linkedin;
             } else {
-                linkedin.innerHTML = '<i class="fab fa-linkedin"></i>' + info;
+                linkedin.innerText = info;
                 editLinkedinForm.value = info;
+                if (info.startsWith("https://")) {
+                    linkedin.href = info;
+                } else {
+                    linkedin.href = "https://" + info;
+                };
+                
             }
             break;
         case "change-github":
             if (!info) {
-                github.innerHTML = '<i class="fab fa-github-square"></i>' + "github.com/hjungj21o"
+                github.innerText = defaultValues.github;
+                github.href = defaultValues.github;
+                github.href = "https://" + defaultValues.github;
             } else {
-                github.innerHTML = '<i class="fab fa-github-square"></i>' + info;
+                github.innerText = info;
                 editGithubForm.value = info;
+                if (info.startsWith("https://")) {
+                    github.href = info;
+                } else {
+                    github.href = "https://" + info;
+                };
             }
             break;
         case "change-angellist":
             if (!info) {
-                angellist.innerHTML = '<i class="fab fa-angellist"></i>' + "angel.co/u/haejun-chung-19"
+                angellist.innerText = defaultValues.angel;
+                angellist.href = defaultValues.angel;
+                angellist.href = "https://" + defaultValues.angel;
             } else {
-                angellist.innerHTML = '<i class="fab fa-angellist"></i>' + info;
+                angellist.innerText = info;
                 editAngellistForm.value = info;
             }
             break;
         case "change-line-1":
             if (!info) {
-                lineOne.innerText = "Full-Stack";
+                lineOne.innerText = defaultValues.lineOne;
             } else {
                 lineOne.innerText = info;
                 editLineOne.value = info;
@@ -279,7 +340,7 @@ function getInfo(className) {
             break;
         case "change-line-2":
             if (!info) {
-                lineTwo.innerText = "Developer";
+                lineTwo.innerText = defaultValues.lineTwo
             } else {
                 lineTwo.innerText = info;
                 editLineTwo.value = info;
@@ -287,7 +348,7 @@ function getInfo(className) {
             break;
         case "change-line-3":
             if (!info) {
-                lineThree.innerText = "For Hire";
+                lineThree.innerText = defaultValues.lineThree
             } else {
                 lineThree.innerText = info;
                 editLineThree.value = info;
@@ -295,9 +356,9 @@ function getInfo(className) {
             break;
         case "dropdown-li":
             if (!info) {
-                lineOne.style.fontFamily = "Varela Round, sans-serif";
-                lineTwo.style.fontFamily = "Varela Round, sans-serif";
-                lineThree.style.fontFamily = "Varela Round, sans-serif";
+                lineOne.style.fontFamily = defaultValues.font;
+                lineTwo.style.fontFamily = defaultValues.font;
+                lineThree.style.fontFamily = defaultValues.font;
             } else {
                 fontButton.innerText = info;
                 fontButton.style.fontFamily = fontFamily[info];
@@ -308,7 +369,7 @@ function getInfo(className) {
             break;
         case "change-block-color":
             if (!info) {
-                blockColor.style.backgroundColor = "#FFB45A";
+                blockColor.style.backgroundColor = defaultValues.blockColor;
             } else {
                 blockColor.style.backgroundColor = info;
                 editBlockColor.value = info;
@@ -318,21 +379,6 @@ function getInfo(className) {
 }
 
 // Reset button 
-
-const defaultValues = {
-    name: "Haejun Chung",
-    position: "Full-Stack Developer",
-    phone: "(862) 485 - 6213",
-    email: "haejun.chung210@gmail.com",
-    linkedin: "linkedin.com/in/haejunchung/",
-    github: "github.com/hjungj21o",
-    angel: "angel.co/u/haejun-chung-19",
-    lineOne: "Full-Stack",
-    lineTwo: "Developer",
-    lineThree: "For Hire",
-    blockColor: "#FFB45A",
-    font: "Varela Round, sans-serif"
-}
 
 const resetInputsArr = document.querySelectorAll("#edit");
 
@@ -345,11 +391,16 @@ function reset() {
     //input values back to default values
     name.innerText = defaultValues.name;
     position.innerText = defaultValues.position;
-    phone.innerHTML = '<i class="fas fa-mobile-alt"></i>' + defaultValues.phone;
-    email.innerHTML = '<i class="fas fa-at"></i>' + defaultValues.email;
-    linkedin.innerHTML = '<i class="fab fa-linkedin"></i>' + defaultValues.linkedin;
-    github.innerHTML = '<i class="fab fa-github-square"></i>' + defaultValues.github;
-    angellist.innerHTML = '<i class="fab fa-angellist"></i>' + defaultValues.angel;
+    phone.innerText = defaultValues.phone;
+    phone.href = "tel:" + defaultValues.phone;
+    email.innerText = defaultValues.email;
+    email.href = "mailto:" + defaultValues.email;
+    linkedin.innerText = defaultValues.linkedin;
+    linkedin.href = "https://" + defaultValues.linkedin;
+    github.innerText = defaultValues.github;
+    github.href = "https://" + defaultValues.github;
+    angellist.innerText = defaultValues.angel;
+    angellist.href = "https://" + defaultValues.angel;
     lineOne.innerText = defaultValues.lineOne;
     lineTwo.innerText = defaultValues.lineTwo;
     lineThree.innerText = defaultValues.lineThree;

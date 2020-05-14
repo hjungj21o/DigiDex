@@ -9,6 +9,7 @@
         <meta property="og:description" content="Business Cards, Reimagined" />
         <link rel="stylesheet" href="./dist/main.css" />
         <link rel="stylesheet" href="./src/reset.css" />
+        <!-- <link href="./src/styles/color-picker.css" rel="stylesheet"> -->
         <link rel="shortcut icon" type="image/png" href="./src/assets/favicon.png">
         <link
             href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Bungee+Shade&family=Concert+One&family=Indie+Flower&family=Monoton&family=Montserrat:wght@500&family=Roboto:wght@300&family=Spectral&family=Varela+Round&family=Faster+One&display=swap"
@@ -65,7 +66,7 @@
             <form class="edit-pane back">
                 <label class="edit-pane-input">
                     <div class="edit-name">Name:</div>
-                    <input type="text" id="edit" class="change-name" placeholder="First Last (ex:'John Smith')" />
+                    <input type="text" id="edit" class="change-name" placeholder="First Last (ex: 'John Smith')" />
                 </label>
                 <label class="edit-pane-input">
                     <div class="edit-position">Position:</div>
@@ -94,11 +95,59 @@
             </form>
             <button class="reset-button">Reset!</button>
             <div class="creator">
-                
+                <div class="created-by">
+                    Created by: Haejun Chung 
+                </div>
+                <ul class="external-links">
+                    <li><a href="https://www.linkedin.com/in/haejunchung" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/hjungj21o" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                    <li><a href="https://angel.co/u/haejun-chung-19" target="_blank"><i class="fab fa-angellist"></i></a></li>
+                </ul>
             </div>
         </div>
         <div class="div s2-3">
             <img src="./src/assets/logo.png">
+            <div class="help">
+                <i class="far fa-question-circle"></i>
+            </div>
+            <div class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                </br>
+                </br>
+                    <div class="modal-description">
+                        <div class="welcome">Welcome to DigiDex!</div>
+                        </br> 
+                        </br>
+                        DigiDex is an online business card that you can edit and interact with.
+                        </br>
+                        </br>
+                        The directions are simple:
+                        </br>
+                        1. Simply hover over the card to see the other side of the card.
+                        </br>
+                        2. Customize your card by clicking on the "Edit" button on the left hand side.
+                        </br>
+                        3. Play around with it! The world is your oyster.
+                        </br>
+                        
+                        </br>
+                        </br>
+                        We hope to bring you more functionality in the future, including:
+                        </br>
+                        1. Iframe embedding feature so that you can actually utilize it on your website.
+                        </br>
+                        2. Save/print as PDF so that you can bring it to a print shop.
+                        </br>
+                        3. Additional Templates.
+                        </br>
+                        4. And so much more!
+                        </br>
+                        </br>
+                        To close, click anywhere outside the box or the "x" button.
+                    </div>
+                </div>
+            </div>
             <div class="card-content">
                 <div class="bubble-back-container card-back">
                     <div class="bubble-back card-back-title">
@@ -114,13 +163,38 @@
                     <div class="bubble-front card-front-content">
                         <div class="name">Haejun Chung</div>
                         <div class="position">Full Stack Developer</div>
-                        <ul>
-                            <li class="phone"><i class="fas fa-mobile-alt"></i>(862) 485 - 6213</li>
-                            <li class="email"><i class="fas fa-at"></i>haejun.chung210@gmail.com</li>
-                            <li class="linkedin"><i class="fab fa-linkedin"></i>linkedin.com/in/haejunchung/</li>
-                            <li class="github"><i class="fab fa-github-square"></i>github.com/hjungj21o</li>
-                            <li class="angellist"><i class="fab fa-angellist"></i>angel.co/u/haejun-chung-19</li>
-                        </ul>
+                        <div class="biz-link-info-container">
+                            <div class="biz-external-link-container">
+                                <i class="bizicon fas fa-phone-alt"></i>
+                                <a class="phone biz-external-link" href="tel:(862) 485-6213">
+                                    (862) 485 - 6213
+                                </a>
+                            </div>
+                            <div class="biz-external-link-container">
+                                <i class="bizicon far fa-envelope"></i>
+                                <a class="email biz-external-link" href="mailto:haejun.chung210@gmail.com">
+                                    haejun.chung210@gmail.com
+                                </a>
+                            </div>
+                            <div class="biz-external-link-container">
+                                <i class="bizicon fab fa-linkedin"></i>
+                                <a class="linkedin biz-external-link" href="https://linkedin.com/in/haejunchung" target="_blank">
+                                    linkedin.com/in/haejunchung
+                                </a>
+                            </div>
+                            <div class="biz-external-link-container">
+                                <i class="bizicon fab fa-github-square"></i>
+                                <a class="github biz-external-link" href="https://github.com/hjungj21o" target="_blank">
+                                    github.com/hjungj21o
+                                </a>
+                            </div>
+                            <div class="biz-external-link-container">
+                                <i class="bizicon fab fa-angellist"></i>
+                                <a class="angellist biz-external-link" href="https://angel.co/u/haejun-chung-19" target="_blank">
+                                    angel.co/u/haejun-chung-19
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <canvas>
                     </canvas>
@@ -130,5 +204,8 @@
         <script src="./dist/main.js"></script>
         <script src="./src/edit_pane.js"></script>
         <script src="./src/bubble.js"></script>
+        <script src="./src/modal.js"></script>
+        <!-- <script src="./src/color-picker.js"></script> -->
+
     </body>
 </html>
