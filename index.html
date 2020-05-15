@@ -9,7 +9,6 @@
         <meta property="og:description" content="Business Cards, Reimagined" />
         <link rel="stylesheet" href="./dist/main.css" />
         <link rel="stylesheet" href="./src/reset.css" />
-        <!-- <link href="./src/styles/color-picker.css" rel="stylesheet"> -->
         <link rel="shortcut icon" type="image/png" href="./src/assets/favicon.png">
         <link
             href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Bungee+Shade&family=Concert+One&family=Indie+Flower&family=Monoton&family=Montserrat:wght@500&family=Roboto:wght@300&family=Spectral&family=Varela+Round&family=Faster+One&display=swap"
@@ -58,8 +57,11 @@
                     <input type="text" id="edit" class="change-line-3" placeholder="Don't think too hard!" />
                 </label>
                 <label>
-                    <div class="edit-block-color">Block Color:</div>
-                    <input type="text" id="edit" class="change-block-color" placeholder="#FFB45A">
+                    <div class="edit-block-color">Overtone:</div>
+                    <div class="color-picker-container">
+                        <div class="color-picker"></div>
+                    </div>
+                    <input type="text" id="edit" class="change-block-color" placeholder="#FFB45A" readonly>
                 </label>
             </form>
             <div class="edit-side-title edit-pane-back-text">Back Side</div>
@@ -201,11 +203,12 @@
                 </div>
             </div>
         </div>
-        <script src="./dist/main.js"></script>
+        <!-- <script src="./dist/main.js"></script>
         <script src="./src/edit_pane.js"></script>
         <script src="./src/bubble.js"></script>
-        <script src="./src/modal.js"></script>
-        <!-- <script src="./src/color-picker.js"></script> -->
+        <script src="./src/modal.js"></script> -->
+
+        <script type="text/javascript" src="./dist/main.js"></script>
 
     </body>
 </html>

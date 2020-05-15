@@ -1,8 +1,9 @@
-// import "./color-picker"
+import '@simonwep/pickr/dist/themes/nano.min.css';
+import Pickr from '@simonwep/pickr';
 
 function openNav() {
     document.querySelector("#sidenav").style.width = "30vw";
-    document.querySelector(".s2-3").style.marginLeft = "5vw";
+    document.querySelector(".s2-3").style.marginLeft = "10vw";
     document.querySelector(".open-edit-pane").style.marginLeft = "30vw";
 }
 
@@ -78,17 +79,76 @@ const editLineOne = document.querySelector(".change-line-1");
 const editLineTwo = document.querySelector(".change-line-2");
 const editLineThree = document.querySelector(".change-line-3");
 const editBlockColor = document.querySelector(".change-block-color");
+const colorSquare = document.querySelector(".color-picker-container");
+debugger;
 
 const lineOne = document.querySelector(".line-1");
 const lineTwo = document.querySelector(".line-2");
 const lineThree = document.querySelector(".line-3");
-// const blockColor = new CP(document.querySelector(".opacity"));
-const blockColor = document.querySelector(".opacity")
+const blockColor = document.querySelector(".opacity");
+
+const pickr = Pickr.create({
+    el: '.color-picker',
+    theme: 'nano', // or 'monolith', or 'nano'
+    appClass: 'pickr',
+
+    swatches: [
+        'rgba(244, 67, 54, 1)',
+        'rgba(233, 30, 99, 0.95)',
+        'rgba(156, 39, 176, 0.9)',
+        'rgba(103, 58, 183, 0.85)',
+        'rgba(63, 81, 181, 0.8)',
+        'rgba(33, 150, 243, 0.75)',
+        'rgba(3, 169, 244, 0.7)',
+        'rgba(0, 188, 212, 0.7)',
+        'rgba(0, 150, 136, 0.75)',
+        'rgba(76, 175, 80, 0.8)',
+        'rgba(139, 195, 74, 0.85)',
+        'rgba(205, 220, 57, 0.9)',
+        'rgba(255, 235, 59, 0.95)',
+        'rgba(255, 193, 7, 1)'
+    ],
+
+    defaultRepresentation: 'HEX',
+
+    autoReposition: true,
+
+    components: {
+
+        // Main components
+        preview: true,
+        opacity: true,
+        hue: true,
+
+        // Input / output Options
+        interaction: {
+            hex: true,
+            rgba: false,
+            hsla: false,
+            hsva: false,
+            cmyk: false,
+            input: true,
+            clear: true,
+            save: true
+        }
+    }
+
+});
+
+
+pickr.on('change', (color, instance) => {
+    blockColor.style.backgroundColor = color.toHEXA();
+    editBlockColor.value = color.toHEXA();
+    localStorage.removeItem(editBlockColor.className);
+    saveInfo(editBlockColor.className, editBlockColor.value);
+    colorSquare.style.backgroundColor = color.toHEXA(); 
+    debugger;
+});
+
 
 editLineOne.addEventListener("keyup", editInputFuncA);
 editLineTwo.addEventListener("keyup", editInputFuncA);
 editLineThree.addEventListener("keyup", editInputFuncA);
-editBlockColor.addEventListener("keyup", editInputFuncA);
 
 function editInputFuncA(e) {
     e.preventDefault();
@@ -115,13 +175,8 @@ function editInputFuncA(e) {
                 lineThree.innerText = e.currentTarget.value;
             }
             break;
-        case "change-block-color":
-            if (e.currentTarget.value === "") {
-                blockColor.style.backgroundColor = defaultValues.blockColor;
-            } else {
-                blockColor.style.backgroundColor = e.currentTarget.value;
-            }
     }
+    
     localStorage.removeItem(e.currentTarget.className);
     saveInfo(e.currentTarget.className, e.currentTarget.value);
 }
@@ -302,7 +357,6 @@ function getInfo(className) {
                 } else {
                     linkedin.href = "https://" + info;
                 };
-                
             }
             break;
         case "change-github":
@@ -436,53 +490,56 @@ function editFontsFunc(e) {
     fontButton.style.fontFamily = fontFamily[e.currentTarget.id];
 
     //Could it be refactored: lineOne.style.fontFamily = fontFamily[e.currentTarget.id]
-    switch(e.currentTarget.id) {
-        case "varela":
-            lineOne.style.fontFamily = fontFamily.varela;
-            lineTwo.style.fontFamily = fontFamily.varela;
-            lineThree.style.fontFamily = fontFamily.varela;
-            break;
-        case "roboto": 
-            lineOne.style.fontFamily = fontFamily.roboto;
-            lineTwo.style.fontFamily = fontFamily.roboto;
-            lineThree.style.fontFamily = fontFamily.roboto;
-            break;
-        case "montserrat": 
-            lineOne.style.fontFamily = fontFamily.montserrat;
-            lineTwo.style.fontFamily = fontFamily.montserrat;
-            lineThree.style.fontFamily = fontFamily.montserrat;
-            break;
-        case "concertone": 
-            lineOne.style.fontFamily = fontFamily.concertone;
-            lineTwo.style.fontFamily = fontFamily.concertone;
-            lineThree.style.fontFamily = fontFamily.concertone;
-            break;
-        case "spectral":
-            lineOne.style.fontFamily = fontFamily.spectral;
-            lineTwo.style.fontFamily = fontFamily.spectral;
-            lineThree.style.fontFamily = fontFamily.spectral;
-            break;
-        case "monoton":
-            lineOne.style.fontFamily = fontFamily.monoton;
-            lineTwo.style.fontFamily = fontFamily.monoton;
-            lineThree.style.fontFamily = fontFamily.monoton;
-            break;
-        case "indieflower":
-            lineOne.style.fontFamily = fontFamily.indieflower;
-            lineTwo.style.fontFamily = fontFamily.indieflower;
-            lineThree.style.fontFamily = fontFamily.indieflower;
-            break;
-        case "bungee": 
-            lineOne.style.fontFamily = fontFamily.bungee;
-            lineTwo.style.fontFamily = fontFamily.bungee;
-            lineThree.style.fontFamily = fontFamily.bungee;
-            break;
-        case "faster":
-            lineOne.style.fontFamily = fontFamily.faster;
-            lineTwo.style.fontFamily = fontFamily.faster;
-            lineThree.style.fontFamily = fontFamily.faster;
-            break;
-    }
+    lineOne.style.fontFamily = fontFamily[e.currentTarget.id];
+    lineTwo.style.fontFamily = fontFamily[e.currentTarget.id];
+    lineThree.style.fontFamily = fontFamily[e.currentTarget.id];
+    // switch(e.currentTarget.id) {
+    //     case "varela":
+    //         lineOne.style.fontFamily = fontFamily.varela;
+    //         lineTwo.style.fontFamily = fontFamily.varela;
+    //         lineThree.style.fontFamily = fontFamily.varela;
+    //         break;
+    //     case "roboto": 
+    //         lineOne.style.fontFamily = fontFamily.roboto;
+    //         lineTwo.style.fontFamily = fontFamily.roboto;
+    //         lineThree.style.fontFamily = fontFamily.roboto;
+    //         break;
+    //     case "montserrat": 
+    //         lineOne.style.fontFamily = fontFamily.montserrat;
+    //         lineTwo.style.fontFamily = fontFamily.montserrat;
+    //         lineThree.style.fontFamily = fontFamily.montserrat;
+    //         break;
+    //     case "concertone": 
+    //         lineOne.style.fontFamily = fontFamily.concertone;
+    //         lineTwo.style.fontFamily = fontFamily.concertone;
+    //         lineThree.style.fontFamily = fontFamily.concertone;
+    //         break;
+    //     case "spectral":
+    //         lineOne.style.fontFamily = fontFamily.spectral;
+    //         lineTwo.style.fontFamily = fontFamily.spectral;
+    //         lineThree.style.fontFamily = fontFamily.spectral;
+    //         break;
+    //     case "monoton":
+    //         lineOne.style.fontFamily = fontFamily.monoton;
+    //         lineTwo.style.fontFamily = fontFamily.monoton;
+    //         lineThree.style.fontFamily = fontFamily.monoton;
+    //         break;
+    //     case "indieflower":
+    //         lineOne.style.fontFamily = fontFamily.indieflower;
+    //         lineTwo.style.fontFamily = fontFamily.indieflower;
+    //         lineThree.style.fontFamily = fontFamily.indieflower;
+    //         break;
+    //     case "bungee": 
+    //         lineOne.style.fontFamily = fontFamily.bungee;
+    //         lineTwo.style.fontFamily = fontFamily.bungee;
+    //         lineThree.style.fontFamily = fontFamily.bungee;
+    //         break;
+    //     case "faster":
+    //         lineOne.style.fontFamily = fontFamily.faster;
+    //         lineTwo.style.fontFamily = fontFamily.faster;
+    //         lineThree.style.fontFamily = fontFamily.faster;
+    //         break;
+    // }
     localStorage.removeItem(e.currentTarget.className);
     saveInfo(e.currentTarget.className, e.currentTarget.id);
 }

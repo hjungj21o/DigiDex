@@ -285,6 +285,10 @@ img {
     font-size: 15px;
 }
 
+.change-block-color {
+    cursor: not-allowed;
+}
+
 label > div {
     padding-left: 25px;
     padding-right: 10px;
@@ -440,18 +444,18 @@ li a {
 }
 
 .close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding-top: 10px;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 10px;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .welcome {
@@ -460,6 +464,10 @@ li a {
 
 .modal-description {
     font-family: 'Baloo Tamma 2', cursive;
+}
+
+.pickr {
+    border: 2px white solid;
 }
 
 
