@@ -131,7 +131,7 @@ const pickr = Pickr.create({
             cmyk: false,
             input: true,
             clear: true,
-            save: true
+            save: false
         }
     }
 
