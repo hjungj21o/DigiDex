@@ -426,7 +426,6 @@ function getInfo(className) {
             } else {
                 blockColor.style.backgroundColor = info;
                 editBlockColor.value = info;
-                newColor.btnColor = info;
             }
             break;
     }
