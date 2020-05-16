@@ -79,18 +79,20 @@ const editLineOne = document.querySelector(".change-line-1");
 const editLineTwo = document.querySelector(".change-line-2");
 const editLineThree = document.querySelector(".change-line-3");
 const editBlockColor = document.querySelector(".change-block-color");
-const colorSquare = document.querySelector(".color-picker-container");
-debugger;
+const colorSquare = document.querySelector(".pickr");
+
 
 const lineOne = document.querySelector(".line-1");
 const lineTwo = document.querySelector(".line-2");
 const lineThree = document.querySelector(".line-3");
 const blockColor = document.querySelector(".opacity");
 
+
 const pickr = Pickr.create({
     el: '.color-picker',
     theme: 'nano', // or 'monolith', or 'nano'
     appClass: 'pickr',
+    comparison: false,
 
     swatches: [
         'rgba(244, 67, 54, 1)',
@@ -141,8 +143,6 @@ pickr.on('change', (color, instance) => {
     editBlockColor.value = color.toHEXA();
     localStorage.removeItem(editBlockColor.className);
     saveInfo(editBlockColor.className, editBlockColor.value);
-    colorSquare.style.backgroundColor = color.toHEXA(); 
-    debugger;
 });
 
 
@@ -252,7 +252,6 @@ function editInputFuncB(e) {
                 if (e.currentTarget.value.startsWith("https://")) {
                     linkedin.href = e.currentTarget.value;
                 } else {
-                    debugger;
                     linkedin.href = "https://" + e.currentTarget.value;
                 };
             }
@@ -427,6 +426,7 @@ function getInfo(className) {
             } else {
                 blockColor.style.backgroundColor = info;
                 editBlockColor.value = info;
+                newColor.btnColor = info;
             }
             break;
     }
@@ -464,6 +464,7 @@ function reset() {
     fontButton.innerHTML = "varela";
     fontButton.style.fontFamily = defaultValues.font;
     blockColor.style.backgroundColor = "#FFB45A";
+    newColor.btnColor = "#FFB45A";
 
 }
 
